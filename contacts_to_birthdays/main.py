@@ -149,8 +149,9 @@ Finally, it uses the set() function to convert together into a set and then back
     #print(f"len_1:{len(names_vcf)},len_2:{len(names_html)},len_3:{len(together)}")
     generate_xlsx_file(together,xlsx)
   if(sys.argv[1]=="--to_calendar"):
-    ics=sys.argv[2]
-    convert_xlsx_to_ics(ics)
+    file_path=sys.argv[2]
+    ics=sys.argv[3]
+    convert_xlsx_to_ics(file_path,ics)
 
 
 
