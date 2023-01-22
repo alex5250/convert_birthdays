@@ -114,6 +114,8 @@ def create_calendar(file_path:str,ics:str)->None:
         # Checking if the name or date is invalid
         if(names[a] =="Имя или никнейм человека" or dates[a] == "его день рождения"):
             print("invalid string input")
+        if(names[a] == "-"):
+          print("emptry")
         else:
             # Converting the date string to datetime object
             date_object = datetime.datetime.strptime(dates[a], '%d.%m.%y')
