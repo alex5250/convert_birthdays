@@ -45,10 +45,12 @@ This command will execute the `build.sh` file that will build the project and cr
 * [xlrd](https://pypi.org/project/xlrd/) - Used to read excel files
 * [xlwt](https://pypi.org/project/xlwt/) - Used to write excel files
 * [openpyxl](https://pypi.org/project/openpyxl/) - Used to read and write excel files
+* [pandas](https://pypi.org/project/pandas/) - Used to read and write excel files
 
 ## Authors
 
-* **Alex Zasalvskis** - [sahsariga111](https://github.com/sahsariga111)
+* **Alex Zasalvskis** - [alex5250](https://github.com/alex5250)
+* **ChatGPT**
 
 ## License
 
