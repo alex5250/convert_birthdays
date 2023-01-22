@@ -151,7 +151,7 @@ Finally, it uses the set() function to convert together into a set and then back
   if(sys.argv[1]=="--to_calendar"):
     file_path=sys.argv[2]
     ics=sys.argv[3]
-    convert_xlsx_to_ics(file_path,ics)
+    create_calendar(file_path,ics)
 
 
 
