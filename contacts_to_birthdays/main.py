@@ -118,7 +118,7 @@ def create_calendar(file_path:str,ics:str)->None:
           print("emptry")
         else:
             # Converting the date string to datetime object
-            date_object = datetime.datetime.strptime(dates[a], '%d.%m.%y')
+             date_object = datetime.datetime.strptime(dates[a], '%d.%m')
             # Assigning the start and end time of the event
             e.begin = date_object
             e.end = date_object+ relativedelta(hours = 2)
