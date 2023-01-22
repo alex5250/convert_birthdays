@@ -94,7 +94,7 @@ def create_calendar(file_path:str,ics:str)->None:
           # Assigning the name of the event as "День рождения у <name>"
           e.name = f"День рождения у {data_frame['Имя или никнейм человека'][a]}"
           # Converting the date string to datetime object
-          date_object = datetime.datetime.strptime(data_frame['его день рождения'][a], '%d.%m')
+          date_object = datetime.datetime.strptime(data_frame['его день рождения'][a], '%d.%m.%y')
           # Assigning the start and end time of the event
           e.begin = date_object
           e.end = date_object+ relativedelta(hours = 2)
