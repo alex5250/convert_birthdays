@@ -3,7 +3,7 @@
 This is a Python tool that converts an .vcf and .html from Instagram export to table where birthdays can be put in. Then it can be converted to a calendar. It uses the following modules:
 bs4 for HTML scraping
 ics for generating an ics calendar
-openpyxl for reading xlsx files
+pandas for reading xlsx files
 xlwt for writing xlsx files
 datetime for date and time operations
 The main function in this code is main(). The main() function checks the command line arguments and calls other functions based on the arguments.
