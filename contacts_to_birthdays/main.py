@@ -172,7 +172,7 @@ Finally, it uses the set() function to convert together into a set and then back
     generate_xlsx_file(together,xlsx)
   if(sys.argv[1]=="--to_calendar"):
     ics=sys.argv[2]
-    convert_xlsx_to_ics(ics)
+    create_calendar(ics)
 
 
 
