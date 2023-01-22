@@ -24,6 +24,7 @@ from dateutil.relativedelta import relativedelta
 import xlwt
 import sys
 import datetime
+import pandas as pd
 
 
 def get_names_from_vcf(file:str):
@@ -84,46 +85,23 @@ def create_calendar(file_path:str,ics:str)->None:
     c = Calendar()
 
     # Loading the workbook
-    wb = load_workbook(filename = file_path)
-
-    # Lists to store names and dates
-    names=[]
-    dates=[]
-
-    # Getting the sheet named 'Дни рождения'
-    ws=wb['Дни рождения']
-
-    # Iterating through the first column (A) of the sheet
-    for cell in ws['A']:
-        # Appending the cell value to names list if the cell is not empty
-        if(cell.value!=None):
-            names.append(cell.value)
-
-    # Iterating through the second column (B) of the sheet
-    for cell in ws['B']:
-        # Appending the cell value to dates list if the cell is not empty
-        if(cell.value!=None):
-            dates.append(cell.value)
-
+    data_frame = pd.read_excel(file_path)
     # Iterating through the names list
-    for a in range(0,len(names)):
+    for a in range(0,len(data_frame['Имя или никнейм человека'])):
+        try:
         # Creating a new Event
-        e = Event()
-        # Assigning the name of the event as "День рождения у <name>"
-        e.name = f"День рождения у {names[a]}"
-        # Checking if the name or date is invalid
-        if(names[a] =="Имя или никнейм человека" or dates[a] == "его день рождения"):
-            print("invalid string input")
-        if(names[a] == "-"):
-          print("emptry")
-        else:
-            # Converting the date string to datetime object
-            date_object = datetime.datetime.strptime(dates[a], '%d.%m.%y')
-            # Assigning the start and end time of the event
-            e.begin = date_object
-            e.end = date_object+ relativedelta(hours = 2)
-            # Adding the event to the Calendar
-            c.events.add(e)
+          e = Event()
+          # Assigning the name of the event as "День рождения у <name>"
+          e.name = f"День рождения у {data_frame['Имя или никнейм человека'][a]}"
+          # Converting the date string to datetime object
+          date_object = datetime.datetime.strptime(data_frame['его день рождения'][a], '%d.%m')
+          # Assigning the start and end time of the event
+          e.begin = date_object
+          e.end = date_object+ relativedelta(hours = 2)
+          # Adding the event to the Calendar
+          c.events.add(e)
+        except Exception as inst:
+            print(inst)
 
     # Saving the Calendar in ics format
     with open(ics, 'w') as my_file:
@@ -171,8 +149,9 @@ Finally, it uses the set() function to convert together into a set and then back
     #print(f"len_1:{len(names_vcf)},len_2:{len(names_html)},len_3:{len(together)}")
     generate_xlsx_file(together,xlsx)
   if(sys.argv[1]=="--to_calendar"):
-    ics=sys.argv[2]
-    convert_xlsx_to_ics(ics)
+    ics=sys.argv[3]
+    file_excel=sys.argv[2]
+    create_calendar(file_excel,ics)
 
 
 

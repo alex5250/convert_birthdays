@@ -1,10 +1,11 @@
 import sys
 from cx_Freeze import setup, Executable
+import pandas
 
 
 build_exe_options = {
-    "packages": ["os","sys","datetime","dateutil","xlwt"],
-    "zip_include_packages": ["encodings", "bs4","ics","openpyxl","xlwt"],
+    "packages": ["os","sys","datetime","dateutil","xlwt","pandas"],
+    "zip_include_packages": ["encodings", "bs4","ics","openpyxl","xlwt","pandas"],
 }
 
 
