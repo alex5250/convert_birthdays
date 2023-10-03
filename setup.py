@@ -16,9 +16,7 @@ setup(
         'ics'
     ],
     entry_points={
-        'console_scripts': [
-            'contacts_to_birthdays = __main__:main'
-        ]
+        'console_scripts': ['contacts_to_birthdays = contacts_to_birthdays.main:main'],
     },
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -28,5 +26,8 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12'
     ],
 )
