@@ -31,10 +31,10 @@ from ics import Calendar, Event
 
 
 def get_names_from_vcf(file: str):
-  """
-  file: str
-  This function is reading all contacts from simple contacts app .vcf format and converts are as an array
-  """
+    """
+    file: str
+    This function is reading all contacts from simple contacts app .vcf format and converts are as an array
+    """
     names = []  # array
     readLines = open(file).readlines()  # convert it to line arrays
     for line in readLines:
