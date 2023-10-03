@@ -1,15 +1,10 @@
-import sys
+# noinspection PyUnresolvedReferences
 from cx_Freeze import setup, Executable
-import pandas
-
 
 build_exe_options = {
-    "packages": ["os","sys","datetime","dateutil","xlwt","pandas"],
-    "zip_include_packages": ["encodings", "bs4","ics","openpyxl","xlwt","pandas"],
+    "packages": ["os", "sys", "datetime", "dateutil", "xlwt", "pandas"],
+    "zip_include_packages": ["encodings", "bs4", "ics", "openpyxl", "xlwt", "pandas"],
 }
-
-
-
 
 setup(
     name="cbt",
